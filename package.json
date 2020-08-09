@@ -7,7 +7,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/ui": "^0.5.0",
+    "heroicons": "^0.3.7",
     "next": "latest",
+    "next-svgr": "^0.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

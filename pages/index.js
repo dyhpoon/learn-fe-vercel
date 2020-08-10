@@ -1,5 +1,8 @@
+import React, { useState } from "react";
 import SelectorIcon from "heroicons/solid/selector.svg";
+import CogIcon from "heroicons/outline/cog.svg";
 import DotsHorizontalIcon from "heroicons/solid/dots-horizontal.svg";
+import PlusIcon from "heroicons/solid/plus.svg";
 import Link from "next/link";
 
 function VercelLogo({ className }) {
@@ -30,10 +33,14 @@ function GitHubLogo({ className }) {
   );
 }
 
-function Avatar({ src, alt = "" }) {
+function Avatar({ src, alt = "", size = "md" }) {
+  const sizeClasses = {
+    sm: "h-6 w-6",
+    md: "h-8, w-8",
+  };
   return (
     <img
-      className="h-8 w-8 rounded-full border border-gray-200"
+      className={`${sizeClasses[size]} rounded-full border border-gray-200`}
       src={src}
       alt={alt}
     ></img>
@@ -127,6 +134,71 @@ function ProjectCard() {
   );
 }
 
+function AccountSwitcher() {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="relative">
+      <span className="inline-flex items-center space-x-2 text-sm leading-5 font-medium">
+        <Link href="#">
+          <a className="inline-flex items-center space-x-2">
+            <span>
+              <Avatar src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" />
+            </span>
+            <span>Darren Poon</span>
+          </a>
+        </Link>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          type="button"
+          className="border border-transparent rounded p-0.5 hover:border-gray-200 hover:bg-gray-50 transition ease-in-out duration-150"
+        >
+          <SelectorIcon className="h-5 w-5 text-gray-400" />
+        </button>
+      </span>
+      {isOpen && (
+        <div className="absolute w-56 rounded-md bg-white divide-y divide-gray-200 shadow-lg overflow-hidden">
+          <div className="py-2">
+            <div className="pt-3 px-2 pb-4 text-xs uppercase tracking-wide text-gray-500">
+              Personal Account
+            </div>
+            <ul>
+              <li className="px-4 py-3 bg-gray-50">
+                <div className="flex items-center justify-between space-x-4">
+                  <Link href="#">
+                    <a className="flex items-center space-x-4 text-sm leading-5 text-gray-500 hover:text-black">
+                      <Avatar
+                        src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
+                        size="sm"
+                      />
+                      <span>Darren Poon</span>
+                    </a>
+                  </Link>
+
+                  <div>
+                    <Link href="#">
+                      <a className="text-gray-300 hover:text-black">
+                        <CogIcon className="w-4 h-4" />
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="py-2">
+            <Link href="#">
+              <a className="px-4 py-3 flex items-center justify-between text-sm leading-5 text-gray-500 hover:text-black">
+                <span>Create a Team</span>
+                <PlusIcon className="h-4 w-4" />
+              </a>
+            </Link>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function IndexPage() {
   return (
     <div>
@@ -148,23 +220,7 @@ export default function IndexPage() {
                   <line x1="10" y1="28" x2="22" y2="4"></line>
                 </svg>
               </span>
-              <span class="inline-flex items-center space-x-2 text-sm leading-5 font-medium">
-                <Link href="#">
-                  {/* the <a> element needs to use flex again, it got reset even we have same flex in <span> */}
-                  <a className="inline-flex items-center space-x-2">
-                    <span>
-                      <Avatar src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" />
-                    </span>
-                    <span>Darren Poon</span>
-                  </a>
-                </Link>
-                <button
-                  type="button"
-                  className="border border-transparent rounded p-0.5 hover:border-gray-200 hover:bg-gray-50 transition ease-in-out duration-150"
-                >
-                  <SelectorIcon className="h-5 w-5 text-gray-400" />
-                </button>
-              </span>
+              <AccountSwitcher />
             </div>
 
             <div className="flex items-center space-x-4">
@@ -248,7 +304,7 @@ export default function IndexPage() {
             </div>
             <div className="flex flex-col justify-between space-y-4">
               <div className="flex items-center space-x-3">
-                <h1 class="text-4xl leading-10 font-bold">Darren Poon</h1>
+                <h1 className="text-4xl leading-10 font-bold">Darren Poon</h1>
                 <span className="rounded-full bg-gray-50 border border-gray-200 px-2 py-0.5 text-xs leading-5 font-medium text-black uppercase">
                   Hobby
                 </span>
@@ -266,7 +322,7 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-          <div class="grid grid-cols-2 col-gap-6">
+          <div className="grid grid-cols-2 col-gap-6">
             <Link href="#">
               <a className="inline-flex justify-center rounded border border-gray-200 bg-white px-6 py-2 text-sm lending-5 font-medium text-gray-500 hover:border-black hover:text-black transition ease-in-out duration-150">
                 Invite Team

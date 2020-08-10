@@ -2,7 +2,7 @@
 
 /* Write your own custom base styles here */
 html {
-  @apply font-sans antialiased bg-gray-100 text-black;
+  @apply font-sans antialiased bg-gray-50 text-black;
 }
 
 /* Start purging... */

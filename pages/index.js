@@ -40,6 +40,93 @@ function Avatar({ src, alt = "" }) {
   );
 }
 
+function ActivityFeedItem() {
+  return (
+    <div className="flex items-center justify-between space-x-4">
+      <div className="flex items-center space-x-4 text-sm leading-5">
+        <Avatar src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" />
+        <span className="text-gray-600">
+          <Link href="#">
+            <a className="text-black hover:underline">You</a>
+          </Link>{" "}
+          logged in via Github
+        </span>
+      </div>
+      <div className="text-sm leading-5 text-gray-500">
+        <time dateTime="2019-04-24">26d</time>
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard() {
+  return (
+    <div className="rounded-lg shadow-lg">
+      <div className="divide-y divde-gray-200 rounded-lg bg-white shadow overflow-hidden">
+        <div className="p-6 space-y-6">
+          <div className="flex align-items justify-between">
+            <h3 className="text-2xl font-semibold">next-nested-routing</h3>
+            <a className="border rounded border-gray-200 px-5 py-1.5 text-sm leading-5 font-medium text-gray-500 hover:border-black transition ease-in-out duration-150">
+              Visit
+            </a>
+          </div>
+          <div className="space-y-3">
+            <div
+              aria-label="Production deployment"
+              className="flex items-center space-x-3"
+            >
+              <Link href="#">
+                <a className="inline-flex items-center space-x-2 text-sm leading-5 font-medium">
+                  <span
+                    aria-hidden
+                    className="inline-block h-2.5 w-2.5 rounded-full bg-green-300"
+                  ></span>
+                  <span>shamelesscomfort.com</span>
+                </a>
+              </Link>
+              <span className="inline-flex rounded-full bg-gray-50 border border-gray-200 px-1.5 py-px text-xs leading-4 font-medium">
+                Production
+              </span>
+              <span className="text-sm leading-5 text-gray-500">
+                <time dateTime="2019-10-29">204d</time>
+              </span>
+            </div>
+            <div
+              aria-label="Production deployment"
+              className="flex items-center space-x-3"
+            >
+              <Link href="#">
+                <a className="inline-flex items-center space-x-2 text-sm leading-5 font-medium">
+                  <span
+                    aria-hidden
+                    className="inline-block h-2.5 w-2.5 rounded-full bg-green-300"
+                  ></span>
+                  <span>next-nested-routing-5iipzp1m88.now.sh</span>
+                </a>
+              </Link>
+              <span className="inline-flex rounded-full bg-gray-50 border border-gray-200 px-1.5 py-px text-xs leading-4 font-medium">
+                Latest
+              </span>
+              <span className="text-sm leading-5 text-gray-500">
+                <time dateTime="2020-04-04">46d</time>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="px-6 py-3">
+          <a
+            href="#"
+            className="flex items-center space-x-2 text-sm leading-5 font-bold"
+          >
+            <GitHubLogo className="h-4 w-4" />
+            <span>dyhpoon/next-nested-routing</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function IndexPage() {
   return (
     <div>
@@ -192,6 +279,108 @@ export default function IndexPage() {
             </Link>
           </div>
         </div>
+      </div>
+
+      <div className="border-t border-gray-200 pb-10">
+        <main className="-mt-9 max-w-5xl mx-auto px-6 grid grid-cols-12 col-gap-20">
+          <div className="col-span-7">
+            <div>
+              <h2 className="sr-only">Recent Projects</h2>
+              <div className="space-y-12">
+                <ul className="space-y-12">
+                  <li>
+                    <ProjectCard />
+                  </li>
+                  <li>
+                    <ProjectCard />
+                  </li>
+                  <li>
+                    <ProjectCard />
+                  </li>
+                  <li>
+                    <ProjectCard />
+                  </li>
+                </ul>
+                <div>
+                  <Link href="#">
+                    <a className="text-sm leading-5 font-bold text-blue-500 hover:underline">
+                      View All Projects
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-9 col-span-5 pt-1">
+            <h2 className="text-sm leading-5 font-bold">Recent Activity</h2>
+            <ul className="border-b border-gray-200 divide-y divide-gray-200">
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+            </ul>
+            <div>
+              <Link href="#">
+                <a className="text-sm leading-5 font-bold text-blue-500 hover:underline">
+                  View All Activity
+                </a>
+              </Link>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   );
